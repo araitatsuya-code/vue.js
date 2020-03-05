@@ -17,11 +17,11 @@
           </div>
           <div class="condition">
             <div class="target">
-              <lebel><input type="checkbox">セール対象</lebel>
-              <lebel><input type="checkbox">送料無料</lebel>
+              <label><input type="checkbox">セール対象</label>
+              <label><input type="checkbox">送料無料</label>
             </div>
             <div class="sort">
-              <lebel for="sort">並び替え</lebel>
+              <label for="sort">並び替え</label>
               <select id="sort" class="sorting">
                 <option value="1">標準</option>
                 <option value="2">価格が安い順</option>
@@ -31,70 +31,31 @@
         </div>
         <!--商品一覧-->
         <div class="list">
-          <dev class="item">
+          <div class="item" v-for="product in products">
             <figure class="image">
+              <!--セール対象の場合↓-->
+            <template v-if="product.isSale">
               <div class="status">SALE</div>
-              <img src="image/01.jpg" alt="">
-              <figcaption>Michael<br>スマホケース</figcaption>
+            </template>
+              <!--セール対象の場合↑-->
+              <img v-bind:src="product.image" alt="">
+              <figcaption>{{product.name}}</figcaption>
             </figure>
             <div class="detail">
-              <div class="price"><span>1,580</span>円（税込）</div>
+              <div class="price"><span>{{product.price}}</span>円（税込）</div>
+              <template v-if="product.delv == 0">
+              <!--送料無料の場合-->
               <div class="shipping-fee none">送料無料</div>
+              <!--送料無料の場合-->
+            </template>
+            <template v-else>
+              <!--送料ありの場合-->
+              <div class="shipping-fee">+送料240円</div>
+              <!--送料ありの場合-->
+            </template>
             </div>
-          </dev>
-          <dev class="item">
-            <figure class="image">
-              <div class="status">SALE</div>
-              <img src="image/02.jpg" alt="">
-              <figcaption>Raphael<br>スマホケース</figcaption>
-            </figure>
-            <div class="detail">
-              <div class="price"><span>1,580</span>円（税込）</div>
-              <div class="shipping-fee none">送料無料</div>
-            </div>
-          </dev>
-          <dev class="item">
-            <figure class="image">
-              <div class="status">SALE</div>
-              <img src="image/03.jpg" alt="">
-              <figcaption>Gabriel<br>スマホケース</figcaption>
-            </figure>
-            <div class="detail">
-              <div class="price"><span>1,580</span>円（税込）</div>
-              <div class="shipping-fee none">送料240円</div>
-            </div>
-          </dev>
-          <dev class="item">
-            <figure class="image">
-              <div class="status">SALE</div>
-              <img src="image/04.jpg" alt="">
-              <figcaption>Uriel<br>スマホケース</figcaption>
-            </figure>
-            <div class="detail">
-              <div class="price"><span>980</span>円（税込）</div>
-              <div class="shipping-fee none">送料無料</div>
-            </div>
-          </dev>
-          <dev class="item">
-            <figure class="image">
-              <img src="image/05.jpg" alt="">
-              <figcaption>Ariel<br>スマホケース</figcaption>
-            </figure>
-            <div class="detail">
-              <div class="price"><span>980</span>円（税込）</div>
-              <div class="shipping-fee none">送料無料</div>
-            </div>
-          </dev>
-          <dev class="item">
-            <figure class="image">
-              <img src="image/06.jpg" alt="">
-              <figcaption>Azrael<br>スマホケース</figcaption>
-            </figure>
-            <div class="detail">
-              <div class="price"><span>1,580</span>円（税込）</div>
-              <div class="shipping-fee none">送料無料</div>
-            </div>
-          </dev>
+          </div>
+
           </div>
         </div>
       </div>
