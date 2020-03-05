@@ -29,5 +29,18 @@ var app = new Vue({
       {name: 'Michael<br>スマホケース',price: 1580, image: 'image/06.jpg',
       delv: 0, isSale: false },
     ]
+  }, //オプションを","で区切る
+  watch:{
+    //「セール対象」チェックボックスの状態を監視するウォッチャ
+    showSaleItem: function(newVal, oldVal){
+      //ここでproductsの配列を置き換える
+      console.log('showSaleItemウォッチャが呼び出されました。');
+    },
+    //「送料無料」チェックボックスの状態を監視するウォッチャ
+    showDelvFree: function(newVal, oldVal){
+      //ここでproductsの配列を書き換える
+      console.log('showDelvFreeウォッチャが呼び出されました');
+    }
+    }
   }
 });
