@@ -43,6 +43,7 @@ var app = new Vue({
     }
   },
   computed: {
+
     //絞り込み後の商品リストを返す算出プロパティ
     filteredList: function() {
       //絞り込み後の商品リストを格納する新しい配列
@@ -64,8 +65,23 @@ var app = new Vue({
           newList.push(this.products[i]);
         }
       }
+      //新しい配列を並び替える
+      if (this.sortOrder == 1){
+        //元の順番にpushしているので並び替え済み
+      }
+      else if (this.sortOrder == 2){
+        //価格が安い順に並び替える
+        newList.sort(function(a,b){
+          return a.price - b.price;
+        });
+      }
     //絞り込み後の商品リストを返す
     return newList;
     }
-  }
+  },
+  // //絞り込み後の商品リストの件数を返す算出プロパティ
+  //  count: function(){
+  //   return this.filteredList.length;
+  // }
+
   });
