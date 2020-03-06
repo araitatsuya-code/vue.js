@@ -16,17 +16,17 @@ var app = new Vue({
     sortOrder: 1,
     //商品リスト
     products: [
-      {name: 'Michael<br>スマホケース',price: 1580, image: 'image/01.jpg',
+      {id: 1,name: 'Michael<br>スマホケース',price: 1580, image: 'image/01.jpg',
       delv: 0, isSale: true },
-      {name: 'Raphael<br>スマホケース',price: 1580, image: 'image/02.jpg',
+      {id: 2,name: 'Raphael<br>スマホケース',price: 1580, image: 'image/02.jpg',
       delv: 0, isSale: true },
-      {name: 'Gabriel<br>スマホケース',price: 1580, image: 'image/03.jpg',
+      {id: 3,name: 'Gabriel<br>スマホケース',price: 1580, image: 'image/03.jpg',
       delv: 240, isSale: true },
-      {name: 'Uriel<br>スマホケース',price: 980, image: 'image/04.jpg',
+      {id: 4,name: 'Uriel<br>スマホケース',price: 980, image: 'image/04.jpg',
       delv: 0, isSale: true },
-      {name: 'Ariel<br>スマホケース',price: 980, image: 'image/05.jpg',
+      {id: 5,name: 'Ariel<br>スマホケース',price: 980, image: 'image/05.jpg',
       delv: 0, isSale: false },
-      {name: 'Michael<br>スマホケース',price: 1580, image: 'image/06.jpg',
+      {id: 6,name: 'Michael<br>スマホケース',price: 1580, image: 'image/06.jpg',
       delv: 0, isSale: false },
     ]
   }, //オプションを","で区切る
