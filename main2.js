@@ -7,7 +7,7 @@ btnLoad.addEventListener('click', function(){
   //2通信状態の変化を監視する
   xmlHttpRequest.onreadystatechange = function(){
     //レスポンスの受信が正常に完了
-    if (this.readyState == 4 && this.status == 200){
+    if (this.readyState == 4 /*&& this.status == 200*/){
       //受信したJSONを変数に格納する
       var products = this.response;
       //商品リストのノードを全て削除する
