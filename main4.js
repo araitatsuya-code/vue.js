@@ -1,5 +1,5 @@
 //JSONPのURL
-var url = products.js
+var url = /Users/araitatsuya/projects/vue.js/products.json
   // 非同期通信でJSONを読み込む
   $.ajax({
     url : 'products.json',  // 通信先URL
