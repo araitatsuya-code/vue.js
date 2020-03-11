@@ -16,6 +16,10 @@ var app = new Vue({
     sortOrder: 1,
     //商品リスト
     products: []
+    //エラーの有無
+    isError: false;
+    //メッセージ
+    message: ''
   }, 
   // ライフサイクルハック
   created: function(){
@@ -33,8 +37,9 @@ var app = new Vue({
       console.log(data);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
-      console.log('通信が失敗しました');
-    });
+      this.isError = true;
+      this.message = '商品リストの読み込みに失敗しました。';
+    }.bind(this));
   
   },
   computed: {
