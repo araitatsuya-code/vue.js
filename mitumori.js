@@ -82,6 +82,34 @@ function number_format(val) {
   return val.toLocaleString();
 }
 
+// 再計算した基本料金を（税込）を返す関数
+function taxedBasePrice(){
+  //基本料金を返す
+}
+
+// 再計算したオプション料金（税込）を返す関数
+function taxedOptPrice(){
+  // オプション料金（税込）を返す
+}
+
+// 金額の表示を更新する関数
+function updateForm(){
+  // フォームコントロールを取得
+  var sum_base = app.querySelector('#sum_base'); // 基本料金（税込）
+  var sum_opt  = app.querySelector('#sum_opt');  // オプション料金（税込）
+  var sum_total = app.querySelector('#sum_total'); // 合計（税込）
+  
+  // 金額を再計算
+  var basePrice = taxedBasePrice(); // 基本料金（税込）
+  var optPrice  = taxedOptPrice();  // オプション料金（税込）
+  var totalPrice = basePrice + optPrice; // 合計（税込）
+
+  // 表示を更新
+  sum_base.value = number_format(basePrice); // 基本料金（税込）
+  sum_opt.value  = number_format(optPrice);  // オプション料金（税込）
+  sum_total.value = number_format(totalPrice); // 合計（税込）
+}
+
 // 日付の差を求める関数
 function getDateDiff(dateString1, dateString2) {
   // 日付を表す文字列から日付オブジェクトを生成
