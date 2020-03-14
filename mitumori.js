@@ -82,6 +82,18 @@ function number_format(val) {
   return val.toLocaleString();
 }
 
+// 日付の差を求める関数
+function getDateDiff(dateString1, dateString2){
+  // 日付を表す文字列から日付オブジェクトを生成
+  var date1 = new Date(dateString1);
+  var date2 = new Date(datastring2);
+  // ２つの日付のさぶん（ミリ秒）を計算
+  var msDiff  = date1.getTime() - date2.getTime();
+    // 求めた差分（ミリ秒）を日付に変換
+  // 差分÷(1000ミリ秒×60秒×60分×24時間)
+  return Math.ceil(msDiff / (1000 * 60 * 60 *24));
+}
+
 // 再計算した基本料金を（税込）を返す関数
 function taxedBasePrice(){
   //基本料金を返す
