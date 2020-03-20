@@ -41,6 +41,8 @@ var app = new Vue({
     // オプション「写真スキャニング」
     opt4_num: 0,                  // 利用枚数
     opt4_price: 500,              // 料金（税抜き）
+    // 翌日の日付
+    tommorow: null
   },
   methods: {
     // 税抜金額を税込金額に変換するメソッド
@@ -158,5 +160,9 @@ var app = new Vue({
     // DVD仕上がり予定日に、挙式日の１週間前の日付を設定
     dt.setDate(dt.getDate() - 7);
     this.delivery_date = this.formatDate(dt);
+    // DVD仕上がり予定日に翌日以降しか入力出来ない様にする
+    dt = new Date();
+    dt.setDate(dt.getDate() + 1);
+    this.tommorow = this.formatDate(dt);
   }
 });
